@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7291C203-D809-425A-8467-859BE15FF53A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>midiplay</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\interface;..\libarc;..\libunimod;..\timidity;..\utils;..;..\..\include;..\portaudio\pa_common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;ws2_32.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\interface;..\libarc;..\libunimod;..\timidity;..\utils;..;..\..\include;..\portaudio\pa_common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>winmm.lib;ws2_32.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\interface\dumb_c.c" />
+    <ClCompile Include="..\interface\rtsyn_common.c" />
+    <ClCompile Include="..\interface\rtsyn_winmm.c" />
+    <ClCompile Include="..\interface\vt100.c" />
+    <ClCompile Include="..\interface\vt100_c.c" />
+    <ClCompile Include="..\interface\VTPrsTbl.c" />
+    <ClCompile Include="..\interface\w32g_ini.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\interface\w32g_syn.c" />
+    <ClCompile Include="..\interface\winsyn_c.c" />
+    <ClCompile Include="..\interface\wrdt_dumb.c" />
+    <ClCompile Include="..\interface\wrdt_tty.c" />
+    <ClCompile Include="..\interface\wrdt_wcon.c" />
+    <ClCompile Include="..\libarc\arc.c" />
+    <ClCompile Include="..\libarc\arc_lzh.c" />
+    <ClCompile Include="..\libarc\arc_mime.c" />
+    <ClCompile Include="..\libarc\arc_tar.c" />
+    <ClCompile Include="..\libarc\arc_zip.c" />
+    <ClCompile Include="..\libarc\deflate.c" />
+    <ClCompile Include="..\libarc\explode.c" />
+    <ClCompile Include="..\libarc\inflate.c" />
+    <ClCompile Include="..\libarc\unlzh.c" />
+    <ClCompile Include="..\libarc\url.c" />
+    <ClCompile Include="..\libarc\url_b64decode.c" />
+    <ClCompile Include="..\libarc\url_buff.c" />
+    <ClCompile Include="..\libarc\url_cache.c" />
+    <ClCompile Include="..\libarc\url_dir.c" />
+    <ClCompile Include="..\libarc\url_file.c" />
+    <ClCompile Include="..\libarc\url_ftp.c" />
+    <ClCompile Include="..\libarc\url_hqxdecode.c" />
+    <ClCompile Include="..\libarc\url_http.c" />
+    <ClCompile Include="..\libarc\url_inflate.c" />
+    <ClCompile Include="..\libarc\url_mem.c" />
+    <ClCompile Include="..\libarc\url_news.c" />
+    <ClCompile Include="..\libarc\url_newsgroup.c" />
+    <ClCompile Include="..\libarc\url_pipe.c" />
+    <ClCompile Include="..\libarc\url_qsdecode.c" />
+    <ClCompile Include="..\libarc\url_uudecode.c" />
+    <ClCompile Include="..\libunimod\load_669.c" />
+    <ClCompile Include="..\libunimod\load_amf.c" />
+    <ClCompile Include="..\libunimod\load_dsm.c" />
+    <ClCompile Include="..\libunimod\load_far.c" />
+    <ClCompile Include="..\libunimod\load_gdm.c" />
+    <ClCompile Include="..\libunimod\load_imf.c" />
+    <ClCompile Include="..\libunimod\load_it.c" />
+    <ClCompile Include="..\libunimod\load_m15.c" />
+    <ClCompile Include="..\libunimod\load_med.c" />
+    <ClCompile Include="..\libunimod\load_mod.c" />
+    <ClCompile Include="..\libunimod\load_mtm.c" />
+    <ClCompile Include="..\libunimod\load_okt.c" />
+    <ClCompile Include="..\libunimod\load_s3m.c" />
+    <ClCompile Include="..\libunimod\load_stm.c" />
+    <ClCompile Include="..\libunimod\load_stx.c" />
+    <ClCompile Include="..\libunimod\load_ult.c" />
+    <ClCompile Include="..\libunimod\load_uni.c" />
+    <ClCompile Include="..\libunimod\load_xm.c" />
+    <ClCompile Include="..\libunimod\mloader.c" />
+    <ClCompile Include="..\libunimod\mlutil.c" />
+    <ClCompile Include="..\libunimod\mmsup.c" />
+    <ClCompile Include="..\libunimod\munitrk.c" />
+    <ClCompile Include="..\portaudio\pa_common\pa_lib.c" />
+    <ClCompile Include="..\portaudio\pa_win_ds\dsound_wrapper.c" />
+    <ClCompile Include="..\portaudio\pa_win_ds\pa_dsound.c" />
+    <ClCompile Include="..\timidity\aiff_a.c" />
+    <ClCompile Include="..\timidity\aq.c" />
+    <ClCompile Include="..\timidity\audio_cnv.c" />
+    <ClCompile Include="..\timidity\au_a.c" />
+    <ClCompile Include="..\timidity\common.c" />
+    <ClCompile Include="..\timidity\controls.c" />
+    <ClCompile Include="..\timidity\effect.c" />
+    <ClCompile Include="..\timidity\filter.c" />
+    <ClCompile Include="..\timidity\freq.c" />
+    <ClCompile Include="..\timidity\gogo_a.c" />
+    <ClCompile Include="..\timidity\instrum.c" />
+    <ClCompile Include="..\timidity\list_a.c" />
+    <ClCompile Include="..\timidity\loadtab.c" />
+    <ClCompile Include="..\timidity\m2m.c" />
+    <ClCompile Include="..\timidity\mfi.c" />
+    <ClCompile Include="..\timidity\mfnode.c" />
+    <ClCompile Include="..\timidity\miditrace.c" />
+    <ClCompile Include="..\timidity\mix.c" />
+    <ClCompile Include="..\timidity\mod.c" />
+    <ClCompile Include="..\timidity\mod2midi.c" />
+    <ClCompile Include="..\timidity\modmid_a.c" />
+    <ClCompile Include="..\timidity\mt19937ar.c" />
+    <ClCompile Include="..\timidity\optcode.c" />
+    <ClCompile Include="..\timidity\output.c" />
+    <ClCompile Include="..\timidity\playmidi.c" />
+    <ClCompile Include="..\timidity\portaudio_a.c" />
+    <ClCompile Include="..\timidity\quantity.c" />
+    <ClCompile Include="..\timidity\raw_a.c" />
+    <ClCompile Include="..\timidity\rcp.c" />
+    <ClCompile Include="..\timidity\readmidi.c" />
+    <ClCompile Include="..\timidity\recache.c" />
+    <ClCompile Include="..\timidity\resample.c" />
+    <ClCompile Include="..\timidity\reverb.c" />
+    <ClCompile Include="..\timidity\sbkconv.c" />
+    <ClCompile Include="..\timidity\sffile.c" />
+    <ClCompile Include="..\timidity\sfitem.c" />
+    <ClCompile Include="..\timidity\smfconv.c" />
+    <ClCompile Include="..\timidity\smplfile.c" />
+    <ClCompile Include="..\timidity\sndfont.c" />
+    <ClCompile Include="..\timidity\tables.c" />
+    <ClCompile Include="..\timidity\version.c" />
+    <ClCompile Include="..\timidity\vorbis_a.c" />
+    <ClCompile Include="..\timidity\w32g_ogg_dll.c" />
+    <ClCompile Include="..\timidity\w32g_vorbisenc_dll.c" />
+    <ClCompile Include="..\timidity\w32g_vorbis_dll.c" />
+    <ClCompile Include="..\timidity\w32_a.c" />
+    <ClCompile Include="..\timidity\w32_gogo.c" />
+    <ClCompile Include="..\timidity\wave_a.c" />
+    <ClCompile Include="..\timidity\wrdt.c" />
+    <ClCompile Include="..\timidity\wrd_read.c" />
+    <ClCompile Include="..\utils\bitset.c" />
+    <ClCompile Include="..\utils\fft.c" />
+    <ClCompile Include="..\utils\fft4g.c" />
+    <ClCompile Include="..\utils\getopt.c" />
+    <ClCompile Include="..\utils\mblock.c" />
+    <ClCompile Include="..\utils\memb.c" />
+    <ClCompile Include="..\utils\net.c" />
+    <ClCompile Include="..\utils\nkflib.c" />
+    <ClCompile Include="..\utils\readdir_win.c" />
+    <ClCompile Include="..\utils\strtab.c" />
+    <ClCompile Include="..\utils\support.c" />
+    <ClCompile Include="..\utils\timer.c" />
+    <ClCompile Include="midiplay.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

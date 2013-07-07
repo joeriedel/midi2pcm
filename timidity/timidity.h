@@ -275,7 +275,7 @@ typedef double FLOAT_T;
 
 /**** Japanese section ****/
 /* To use Japanese kanji code. */
-#define JAPANESE
+//#define JAPANESE
 
 /* Select output text code:
  * "AUTO"	- Auto conversion by `LANG' environment variable (UNIX only)
